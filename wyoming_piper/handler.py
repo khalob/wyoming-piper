@@ -115,6 +115,7 @@ class PiperEventHandler(AsyncEventHandler):
         _LOGGER.debug(synthesize)
 
         raw_text = synthesize.text
+        raw_text = raw_text.replace('!', '.').replace('?', '.')
 
         # Join multiple lines
         text = " ".join(raw_text.strip().splitlines())
