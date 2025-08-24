@@ -18,6 +18,7 @@ RUN --mount=type=bind,from=builder,target=/mnt/builder pip3 install /mnt/builder
 
 WORKDIR /src
 COPY docker-entrypoint.sh .
+RUN chmod +x docker-entrypoint.sh
 
 EXPOSE 10300/tcp
 VOLUME /data
