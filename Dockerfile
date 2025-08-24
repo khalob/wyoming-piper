@@ -4,7 +4,9 @@ WORKDIR /src
 
 COPY . .
 
-RUN ./script/setup && ./script/package
+RUN ./script/setup
+RUN . .venv/bin/activate && pip install build
+RUN ./script/package
 
 FROM python:3
 
