@@ -6,7 +6,7 @@ import logging
 import math
 import tempfile
 import wave
-import regex
+import re
 from typing import Any, Dict, Optional
 
 from piper import PiperVoice, SynthesisConfig
@@ -145,7 +145,7 @@ class PiperEventHandler(AsyncEventHandler):
         _LOGGER.debug(synthesize)
 
         raw_text = synthesize.text
-        raw_text = regex.sub(r"[^\p{L}\p{N}\s\.\,]", "", raw_text, flags=re.UNICODE)
+        raw_text = re.sub(r"[^\p{L}\p{N}\s\.\,]", "", raw_text, flags=re.UNICODE)
 
         # Join multiple lines
         text = " ".join(raw_text.strip().splitlines())
