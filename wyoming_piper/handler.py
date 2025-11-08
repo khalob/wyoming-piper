@@ -145,6 +145,7 @@ class PiperEventHandler(AsyncEventHandler):
         _LOGGER.debug(synthesize)
 
         raw_text = synthesize.text
+        raw_text = raw_text.replace('!', '.').replace('?', '.')
         raw_text = regex.sub(r"[^\p{L}\p{N}\s\.,:-]", "", raw_text)
 
         # Join multiple lines
